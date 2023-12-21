@@ -3,6 +3,7 @@
     <slot> </slot>
   </div>
 </template>
+
 <style scoped>
 div {
   margin: 2rem auto;
