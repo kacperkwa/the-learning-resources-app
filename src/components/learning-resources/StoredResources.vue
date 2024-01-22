@@ -10,10 +10,10 @@
   </ul>
 </template>
 <script setup>
-import { defineProps } from 'vue';
+import { ref, inject } from 'vue';
 import LearningResource from './LearningResource.vue';
 
-const props = defineProps(['resources']);
+const resources = inject(['resources']);
 </script>
 
 <style scoped>
