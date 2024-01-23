@@ -15,7 +15,7 @@
 <script setup>
 import StoredResources from './StoredResources.vue';
 import AddResource from './AddResource.vue';
-import { provide, ref, computed } from 'vue';
+import { provide, ref, computed, onMounted } from 'vue';
 let selectedTab = ref('StoredResources');
 const setSelectedTab = (tab) => {
   selectedTab.value = tab;
@@ -45,6 +45,22 @@ const selectedTabComponent = computed(() => {
   return selectedTab.value === 'StoredResources'
     ? StoredResources
     : AddResource;
+});
+
+const addResource = (title, description, url) => {
+  if (storedResources.value) {
+    const newResource = {
+      id: new Date().toISOString(),
+      title: title,
+      description: description,
+      link: url,
+    };
+    storedResources.value.unshift(newResource);
+    selectedTab.value = 'StoredResources';
+  }
+};
+onMounted(() => {
+  provide('addResource', addResource);
 });
 provide('resources', storedResources);
 </script>

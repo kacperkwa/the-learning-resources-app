@@ -10,7 +10,7 @@
   </ul>
 </template>
 <script setup>
-import { ref, inject } from 'vue';
+import { inject } from 'vue';
 import LearningResource from './LearningResource.vue';
 
 const resources = inject(['resources']);
