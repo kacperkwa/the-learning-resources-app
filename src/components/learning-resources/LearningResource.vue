@@ -3,7 +3,7 @@
     <BaseCard>
       <header>
         <h3>{{ title }}</h3>
-        <BaseButton mode="flat">Delete</BaseButton>
+        <BaseButton mode="flat" @click="deleteResource(id)">Delete</BaseButton>
       </header>
       <p>{{ description }}</p>
       <nav>
@@ -14,9 +14,10 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, inject } from 'vue';
 
-const props = defineProps(['title', 'description', 'link']);
+const props = defineProps(['id', 'title', 'description', 'link']);
+const deleteResource = inject('removeResource');
 </script>
 
 <style scoped>

@@ -61,8 +61,14 @@ const addResource = (title, description, url) => {
     selectedTab.value = 'StoredResources';
   }
 };
+const removeResource = (resId) => {
+  storedResources.value = storedResources.value.filter(
+    (res) => res.id !== resId
+  );
+};
 onMounted(() => {
   provide('addResource', addResource);
 });
 provide('resources', storedResources);
+provide('removeResource', removeResource);
 </script>

@@ -44,7 +44,6 @@ const addResource = inject('addResource');
 const inputIsInvalid = ref(false);
 
 const submitData = () => {
-  console.log('Submit Data called');
   const enteredTitle = titleInput.value.value;
   const enteredDescription = descInput.value.value;
   const enteredLink = linkInput.value.value;
@@ -55,10 +54,13 @@ const submitData = () => {
     enteredLink.trim() === ''
   ) {
     inputIsInvalid.value = true;
-
     return;
   }
+
   addResource(enteredTitle, enteredDescription, enteredLink);
+  titleInput.value.value = '';
+  descInput.value.value = '';
+  linkInput.value.value = '';
 };
 const confirmError = () => {
   inputIsInvalid.value = false;
