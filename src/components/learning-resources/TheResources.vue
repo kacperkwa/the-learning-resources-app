@@ -9,7 +9,9 @@
       >Add Resource</BaseButton
     >
   </BaseCard>
-  <component :is="selectedTabComponent"></component>
+  <KeepAlive>
+    <component :is="selectedTabComponent"></component>
+  </KeepAlive>
 </template>
 
 <script setup>
